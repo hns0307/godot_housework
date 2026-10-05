@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/game/collectibles/coin_gold_thin.png" id="1_texture"]
+
+[sub_resource type="RectangleShape2D" id="Shape_coin"]
+size = Vector2(7, 13)
+
+[node name="CoinGoldThin" type="Area2D" groups=["collectible"]]
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_texture")
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+shape = SubResource("Shape_coin")
+

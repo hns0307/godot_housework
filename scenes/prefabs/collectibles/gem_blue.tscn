@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/game/collectibles/gem_blue.png" id="1_texture"]
+
+[sub_resource type="CircleShape2D" id="Shape_gem"]
+radius = 6.0
+
+[node name="GemBlue" type="Area2D" groups=["collectible"]]
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_texture")
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+shape = SubResource("Shape_gem")
+

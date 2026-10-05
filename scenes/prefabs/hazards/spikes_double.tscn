@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/game/obstacles/spikes_double.png" id="1_texture"]
+
+[sub_resource type="RectangleShape2D" id="Shape_spikes"]
+size = Vector2(14, 6)
+
+[node name="SpikesDouble" type="Area2D" groups=["hazard"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_texture")
+
+[node name="DetectionArea" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("Shape_spikes")
+
