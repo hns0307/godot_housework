@@ -1,19 +1,31 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://bp62d2e6ukmrs"]
 
-[ext_resource type="Texture2D" path="res://assets/game/obstacles/spikes_double.png" id="1_texture"]
+[ext_resource type="Texture2D" uid="uid://wmoyejtjsmhh" path="res://assets/game/obstacles/spikes_double.png" id="1_texture"]
+[ext_resource type="Script" uid="uid://b40jigktla2er" path="res://scripts/spikes.gd" id="2_hlpjn"]
 
 [sub_resource type="RectangleShape2D" id="Shape_spikes"]
 size = Vector2(14, 6)
 
-[node name="SpikesDouble" type="Area2D" groups=["hazard"]]
+[node name="SpikesDouble" type="Area2D" unique_id=1526081147 groups=["hazard"]]
 collision_layer = 4
 collision_mask = 2
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=765593755]
 texture_filter = 1
 texture = ExtResource("1_texture")
 
-[node name="DetectionArea" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=197874131]
+script = ExtResource("2_hlpjn")
+
+[node name="DetectionArea" type="CollisionShape2D" parent="Area2D" unique_id=1371607536]
+light_mask = 1023
+visibility_layer = 1023
 position = Vector2(0, 4)
 shape = SubResource("Shape_spikes")
 
+[node name="DetectionArea" type="CollisionShape2D" parent="." unique_id=532936145]
+position = Vector2(0, 4)
+shape = SubResource("Shape_spikes")
+
+[connection signal="area_entered" from="." to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="." to="Area2D" method="_on_body_entered"]

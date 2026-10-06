@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://cgkn1cd8uhunb" path="res://assets/game/characters/player_green_idle.png" id="1_character"]
 [ext_resource type="Script" uid="uid://b0gltif7vthau" path="res://scripts/player_controller.gd" id="1_g2els"]
-[ext_resource type="TileSet" uid="uid://dkowcf1ljh41j" path="res://assets/game/tilesets/kenney_terrain_tileset.tres" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
-radius = 5.0
-height = 17.0
+radius = 8.0
+height = 20.0
 
 [node name="Player" type="CharacterBody2D" unique_id=2098904787]
 collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=921388463]
@@ -21,13 +21,9 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_player")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=213851507]
-zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 468
+limit_right = 1640
 limit_bottom = 270
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1318476603]
-tile_set = ExtResource("3_qhqgy")
