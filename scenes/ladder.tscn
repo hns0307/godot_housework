@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://hnteukfrmego"]
+
+[ext_resource type="Texture2D" uid="uid://bvq3swm7gw2mw" path="res://assets/kenney/tiles/tile_0071.png" id="1_xxwne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb1tl"]
+size = Vector2(20, 18)
+
+[node name="Ladder" type="Area2D" unique_id=813350726]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2118742652]
+shape = SubResource("RectangleShape2D_xb1tl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=937489214]
+texture = ExtResource("1_xxwne")

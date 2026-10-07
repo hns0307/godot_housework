@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cr82lkbq18oi"]
+
+[ext_resource type="Script" uid="uid://5sjnv72kj07f" path="res://scripts/Checkpoint.gd" id="1_vsimk"]
+[ext_resource type="Texture2D" uid="uid://00l5fd5nj5ch" path="res://assets/kenney/tiles/tile_0111.png" id="1_ywqth"]
+[ext_resource type="Texture2D" uid="uid://dm36owv32423h" path="res://assets/kenney/tiles/tile_0131.png" id="2_vsimk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(20, 38)
+
+[node name="Checkpoint" type="Area2D" unique_id=1070403656]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_vsimk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757925698]
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1671186434]
+position = Vector2(-1, -10)
+texture = ExtResource("1_ywqth")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1364763245]
+position = Vector2(-1, 8)
+texture = ExtResource("2_vsimk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

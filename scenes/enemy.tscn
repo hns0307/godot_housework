@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cquv0h2ugk6ng"]
+
+[ext_resource type="Script" uid="uid://bn3y36a0jfkgp" path="res://scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://dym4d15jl7ebw" path="res://scenes/diearea.tscn" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://c4t3uu12l8ym4" path="res://assets/kenney/characters/tile_0022.png" id="2_5uy6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(13, 14)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=70999528]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=894975361]
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=561051252]
+texture = ExtResource("2_5uy6h")
+
+[node name="FloorDetector" type="RayCast2D" parent="." unique_id=1216885966]
+position = Vector2(-14, -40)
+
+[node name="WallDetector" type="RayCast2D" parent="." unique_id=1868446576]
+rotation = 1.5707964
+target_position = Vector2(4.808253e-07, 11)
+
+[node name="Diearea12" parent="." unique_id=505966919 instance=ExtResource("1_7p1mj")]
+position = Vector2(1, 1)

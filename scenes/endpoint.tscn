@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cyd7il3uif1bp"]
+
+[ext_resource type="Script" uid="uid://d02e6g775shgt" path="res://scripts/victory.gd" id="1_vdkol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(20, 97)
+
+[node name="Endpoint" type="Area2D" unique_id=1798129371]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_vdkol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1247261215]
+position = Vector2(0, -38.5)
+shape = SubResource("RectangleShape2D_wvhbo")

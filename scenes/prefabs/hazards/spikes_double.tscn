@@ -9,23 +9,14 @@ size = Vector2(14, 6)
 [node name="SpikesDouble" type="Area2D" unique_id=1526081147 groups=["hazard"]]
 collision_layer = 4
 collision_mask = 2
+script = ExtResource("2_hlpjn")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=765593755]
 texture_filter = 1
 texture = ExtResource("1_texture")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=197874131]
-script = ExtResource("2_hlpjn")
-
-[node name="DetectionArea" type="CollisionShape2D" parent="Area2D" unique_id=1371607536]
-light_mask = 1023
-visibility_layer = 1023
-position = Vector2(0, 4)
-shape = SubResource("Shape_spikes")
-
 [node name="DetectionArea" type="CollisionShape2D" parent="." unique_id=532936145]
 position = Vector2(0, 4)
 shape = SubResource("Shape_spikes")
 
-[connection signal="area_entered" from="." to="Area2D" method="_on_area_entered"]
-[connection signal="body_entered" from="." to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
