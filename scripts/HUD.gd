@@ -69,3 +69,7 @@ func _on_died() -> void:
 
 func _on_victory_reached() -> void:
 	victory_label.visible = true
+	if player:
+		player.set_physics_process(false)   # 停掉物理逻辑，避免玩家继续移动
+		# 可选：清空速度，避免倒地时惯性滑行
+		player.velocity = Vector2.ZERO

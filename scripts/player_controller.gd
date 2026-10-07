@@ -29,12 +29,10 @@ var _ladder_cooldown := 0.0   # 冷却计时
 @export_category("生命值")
 @export var max_health: int = 3                # 最大生命值
 @export var invincible_time: float = 1.0       # 受伤后无敌时长
-
 var health: int                                 # 当前生命值
 var invincible := false                         # 是否处于无敌状态
 signal health_changed(current: int, max: int)   # 生命值变化信号，传出当前/最大生命
 signal died                                     # 死亡信号
-
 @onready var sprite: Sprite2D = $Sprite2D       # 绑定节点下的Sprite2D精灵
 var flying : bool = false                       # 飞行开关标记
 var last_space_press_time := -1000              # 上一次按键时间戳，用于判断双击
@@ -136,7 +134,7 @@ func handle_ladder_input() -> void:
 		return
 	if _ladder_cooldown > 0.0:
 		return
-	if Input.is_action_pressed("fly"):
+	if Input.is_action_pressed("jump"):
 		start_climb()
 # 开始攀爬
 func start_climb() -> void:
@@ -160,7 +158,7 @@ func handle_climbing(_delta: float) -> void:
 		return
 	# 竖直移动：jump=上，squat=下
 	velocity.x = 0.0
-	var dir_y := Input.get_axis("fly", "squat")  # 上返回 -1，下返回 +1
+	var dir_y := Input.get_axis("jump", "squat")  # 上返回 -1，下返回 +1
 	velocity.y = dir_y * climb_speed
 # 结束攀爬
 func stop_climb() -> void:
